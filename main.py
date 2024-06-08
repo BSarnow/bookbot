@@ -1,11 +1,20 @@
-
-book_path = "./books/frankenstein.txt"
+book_path = input("Enter path of the book: ")
 
 def main():
-    words = text_words()
-    print(f"frankenstein has {words} words in it")
-    print(f"frankenstein has the following numbers of letters in it:")
-    print(count_tubles())
+    try:
+        words = text_words()
+        tuples_text = count_tubles()
+        print(f"----------start the analyse of frankenstein----------")
+        print("")
+        print(f"The book frankenstein has {words} words in it")
+        print("")
+        for a in tuples_text:
+             print(f"The letter '{a}' is {tuples_text[a]} times in the book frankenstein")
+        print("")
+        print(f"----------end of the analyse----------")
+    except Exception as e:
+         print(e)
+         
 
 def count_tubles():
     # Zählt die Buchstaben in count_letters und hält sie in einem dict fest.
@@ -54,7 +63,5 @@ def text_words():
     # zählt die Wörter aus path_text
     words = path_text(book_path).split()
     return len(words)
-
-
 
 main()
